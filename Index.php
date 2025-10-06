@@ -12,21 +12,19 @@ $c1 = new Compte("Compte chèque", 500, "€", $t1);
 $c2 = new Compte("Livret A", 3000, "€", $t1);
 $c3 = new Compte("Compte courant", 500, "€", $t2);
 
-// Opérations a faire 
-//crediter(200); = fonction depuis compte
-// debiter(1000); = fonction depuis compte
-// virementVers(300); = fonction depuis compte
+
 
 
 
 // Affichage
 $t1->AfficherInfos();
 $t2->AfficherInfos();
-$t2->CrediterCompte();
+$c3->CrediterCompte(500);
+$c3->DebiterCompte(100);
+$t2->AfficherInfos();
+$c1->VirementCompte(100,$c2);
 
-// $c1->afficherInfos();
-// $c2->afficherInfos();
-// $c3->afficherInfos();
+
 
 //gestion de la session
 // session_start();

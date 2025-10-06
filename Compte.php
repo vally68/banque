@@ -16,28 +16,6 @@ class Compte {
         $_titulaire->AjouterCompte($this);
     }
 
-   //faire opération + et - 
-   // $_solde - (montant) d'un compte et $_solde + (meme montant) sur un autre compte
-   /* 
-   
-    public fonction _VirementCompte{
-    
-        $_solde(compte 1) - float && $_solde(compte2) + float;
-         
-    }*/
-   
-    
-
-  /*  public foncion _DebiterCompte{
-    
-        $_solde - (montant);
-        return nouveau montant
-    }
-   
-   
-   */
-    
-
 
     // Afficher les infos d'un compte
     public function AfficherInfos(): void {
@@ -48,12 +26,31 @@ class Compte {
         return "{$this->libelle} : {$this->solde} {$this->devise}";
     }
 
+    public function CrediterCompte(float $montant): void {
+    $this->solde += $montant;
+}
 
-    public function CrediterCompte(): float {
-        $_solde + (300);
-        return $this-> $_solde;
-    
+public function DebiterCompte(float $montant): void {
+    $this->solde -= $montant;
+}
+
+public function VirementCompte(float $montant, Compte $destinataire): void {
+    if ($montant <= 0) {
+        echo "Le montant doit être supérieur à zéro.<br>";
+        return;
     }
+
+    if ($this->solde < $montant) {
+        echo "Solde insuffisant pour effectuer le virement.<br>";
+        return;
+    }
+
+    $this->DebiterCompte($montant);
+    $destinataire->CrediterCompte($montant);
+
+    echo "Virement de {$montant} {$this->devise} effectué de {$this->libelle} vers {$destinataire->libelle}.<br>";
+}
+ 
 }
 
 
