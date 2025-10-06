@@ -5,12 +5,14 @@ class Compte {
     private float $_solde;
     private string $_devise;
     private Titulaire $_titulaire;
+    private $_decouvert;
 
-    public function __construct(string $_libelle, float $_solde, string $_devise, Titulaire $_titulaire) {
+    public function __construct(string $_libelle, float $_solde, string $_devise, Titulaire $_titulaire, int $_decouvert = 0) {
         $this->libelle = $_libelle;
         $this->solde = $_solde;
         $this->devise = $_devise;
         $this->titulaire = $_titulaire;
+        $this->decouvert = $_decouvert;
 
         // On ajoute ce compte à la liste des comptes du titulaire
         $_titulaire->AjouterCompte($this);
@@ -40,7 +42,7 @@ public function VirementCompte(float $montant, Compte $destinataire): void {
         return;
     }
 
-    if ($this->solde < $montant) {
+    if ($this->solde - $montant < -$this->decouvert) {
         echo "Solde insuffisant pour effectuer le virement.<br>";
         return;
     }

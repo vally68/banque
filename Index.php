@@ -22,7 +22,8 @@ $t2->AfficherInfos();
 $c3->CrediterCompte(500);
 $c3->DebiterCompte(100);
 $t2->AfficherInfos();
-$c1->VirementCompte(100,$c2);
+$c1->VirementCompte(600,$c2);
+$t1->AfficherInfos();
 
 
 
