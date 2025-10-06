@@ -10,7 +10,7 @@ $t2 = new Titulaire("Martin", "Sophie", "1990-08-24", "Lyon");
 $c18 = new Compte("Compte joint", 1500, "€", $t1);
 $c1 = new Compte("Compte chèque", 500, "€", $t1);
 $c2 = new Compte("Livret A", 3000, "€", $t1);
-$c3 = new Compte("Compte courant", 500, "€", $t2);
+$c3 = new Compte("Compte courant Sophie", 500, "€", $t2);
 
 
 
@@ -22,8 +22,9 @@ $t2->AfficherInfos();
 $c3->CrediterCompte(500);
 $c3->DebiterCompte(100);
 $t2->AfficherInfos();
-$c1->VirementCompte(600,$c2);
+$c1->VirementCompte(100,$c3);
 $t1->AfficherInfos();
+$t2->AfficherInfos();
 
 
 

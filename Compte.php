@@ -43,7 +43,7 @@ public function VirementCompte(float $montant, Compte $destinataire): void {
     }
 
     if ($this->solde - $montant < -$this->decouvert) {
-        echo "Solde insuffisant pour effectuer le virement.<br>";
+        echo "Solde insuffisant pour effectuer le virement, découvert non autorisé.<br>";
         return;
     }
 
